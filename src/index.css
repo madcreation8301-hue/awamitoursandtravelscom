@@ -113,23 +113,30 @@
     pointer-events: none;
   }
 
-  /* Premium Button Styles */
+  /* Premium Button Styles - Mobile First */
   .btn-gold {
-    @apply bg-accent text-foreground font-semibold px-8 py-4 rounded-xl;
+    @apply bg-accent text-foreground font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
+    @apply active:scale-[0.98];
     background: linear-gradient(135deg, hsl(38 40% 70%) 0%, hsl(var(--accent)) 50%, hsl(38 30% 55%) 100%);
     box-shadow: 0 4px 15px -3px hsl(var(--accent) / 0.4);
   }
 
   .btn-gold:hover {
     box-shadow: 0 8px 25px -5px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.2);
-    @apply scale-[1.03];
+  }
+
+  @media (min-width: 640px) {
+    .btn-gold:hover {
+      @apply scale-[1.02];
+    }
   }
 
   .btn-secondary-outline {
-    @apply font-semibold px-8 py-4 rounded-xl;
+    @apply font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply border-2 border-white/40 text-white/95;
     @apply transition-all duration-300 ease-out;
+    @apply active:scale-[0.98] active:bg-white/5;
     background: transparent;
     backdrop-filter: blur(4px);
   }
@@ -140,26 +147,38 @@
   }
 
   .btn-whatsapp {
-    @apply font-semibold px-8 py-4 rounded-xl;
+    @apply font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
-    background: linear-gradient(135deg, hsl(142 70% 40%) 0%, hsl(142 70% 35%) 100%);
+    @apply active:scale-[0.98];
+    background: linear-gradient(135deg, hsl(142 60% 38%) 0%, hsl(142 65% 32%) 100%);
     color: white;
-    box-shadow: 0 4px 15px -3px hsl(142 70% 35% / 0.4);
+    box-shadow: 0 4px 15px -3px hsl(142 60% 35% / 0.4);
   }
 
   .btn-whatsapp:hover {
-    box-shadow: 0 8px 25px -5px hsl(142 70% 35% / 0.5);
-    @apply scale-[1.03];
+    box-shadow: 0 8px 20px -5px hsl(142 60% 35% / 0.5);
+  }
+
+  @media (min-width: 640px) {
+    .btn-whatsapp:hover {
+      @apply scale-[1.02];
+    }
   }
 
   .btn-primary-gradient {
-    @apply text-primary-foreground font-semibold px-8 py-3 rounded-lg;
+    @apply text-primary-foreground font-semibold px-6 py-3 sm:px-8 rounded-lg;
     @apply transition-all duration-300 ease-out;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--green-light)) 100%);
   }
 
   .btn-primary-gradient:hover {
-    @apply shadow-lg scale-[1.02];
+    @apply shadow-lg;
+  }
+
+  @media (min-width: 640px) {
+    .btn-primary-gradient:hover {
+      @apply scale-[1.02];
+    }
   }
 
   /* Card Styles */
@@ -174,36 +193,37 @@
     @apply -translate-y-1;
   }
 
-  /* Section Styles */
+  /* Section Styles - Mobile First */
   .section-beige {
-    @apply bg-background py-20 lg:py-28;
+    @apply bg-background py-12 sm:py-16 lg:py-24;
   }
 
   .section-white {
-    @apply py-20 lg:py-28;
+    @apply py-12 sm:py-16 lg:py-24;
     background: hsl(var(--beige-light));
   }
 
   .section-green {
-    @apply py-20 lg:py-28 text-primary-foreground;
+    @apply py-12 sm:py-16 lg:py-24 text-primary-foreground;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--green-dark)) 100%);
   }
 
-  /* Text Styles */
+  /* Text Styles - Responsive */
   .heading-display {
-    @apply text-4xl md:text-5xl lg:text-7xl font-bold;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold;
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
   }
 
   .heading-section {
-    @apply text-3xl md:text-4xl font-bold;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold;
     font-family: 'Playfair Display', serif;
+    line-height: 1.2;
   }
 
   .heading-card {
-    @apply text-xl font-semibold;
+    @apply text-lg sm:text-xl font-semibold;
     font-family: 'Playfair Display', serif;
   }
 
@@ -217,12 +237,12 @@
 
   /* Decorative Elements */
   .gold-line {
-    @apply h-1 w-16 rounded-full;
+    @apply h-1 w-12 sm:w-16 rounded-full;
     background: linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--gold-light)) 100%);
   }
 
   .divider-ornate {
-    @apply flex items-center justify-center gap-4 my-8;
+    @apply flex items-center justify-center gap-3 sm:gap-4 my-6 sm:my-8;
   }
 
   .divider-ornate::before,
@@ -232,23 +252,21 @@
     background: linear-gradient(90deg, transparent, hsl(var(--accent) / 0.5), transparent);
   }
 
-  /* Scroll Animation Classes */
+  /* Scroll Animation Classes - Reduced motion on mobile */
   .fade-up {
-    @apply opacity-0 translate-y-8;
-    transition: all 0.6s ease-out;
+    @apply opacity-0 translate-y-6 sm:translate-y-8;
+    transition: all 0.5s ease-out;
   }
 
   .fade-up.visible {
     @apply opacity-100 translate-y-0;
   }
 
-  /* WhatsApp Button */
-  .whatsapp-float {
-    @apply fixed bottom-6 right-6 z-50;
-    @apply text-white p-4 rounded-full;
-    background: linear-gradient(135deg, hsl(142 70% 40%) 0%, hsl(142 70% 35%) 100%);
-    @apply shadow-lg hover:shadow-xl;
-    @apply transition-all duration-300 hover:scale-110;
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up {
+      @apply opacity-100 translate-y-0;
+      transition: none;
+    }
   }
 
   /* Glassmorphism Navbar */

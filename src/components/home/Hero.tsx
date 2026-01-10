@@ -6,56 +6,61 @@ import { BUSINESS } from "@/lib/constants";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-[100svh] overflow-hidden">
+      {/* Background Image - Mobile Optimized */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="The Holy Kaaba at Masjid al-Haram"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
         />
-        {/* Multi-layer Overlay for better contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(151,70%,6%)/70%] via-[hsl(151,60%,10%)/60%] to-[hsl(151,70%,8%)/85%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(151,70%,6%)/80%] via-transparent to-[hsl(151,70%,6%)/30%]" />
+        {/* Darker overlay for better mobile contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(151,70%,5%)/85%] via-[hsl(151,60%,8%)/75%] to-[hsl(151,70%,6%)/95%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(151,70%,5%)/90%] via-transparent to-[hsl(151,70%,5%)/40%]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container min-h-screen flex items-center justify-center text-center py-28">
+      {/* Content - Mobile First */}
+      <div className="relative z-10 container min-h-[100svh] flex items-center justify-center text-center px-5 sm:px-6 py-24 md:py-28">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto"
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-5xl mx-auto"
         >
-          {/* Bismillah - Subtle & Elegant */}
+          {/* Bismillah - Subtle, Smaller on Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="mb-10 md:mb-14"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-6 md:mb-10"
           >
             <p 
-              className="arabic-spiritual text-lg md:text-xl"
+              className="arabic-spiritual text-sm md:text-lg lg:text-xl"
               style={{ 
-                color: 'hsl(38, 45%, 75%)',
-                textShadow: '0 2px 10px hsl(0 0% 0% / 0.3)'
+                color: 'hsl(38, 40%, 70%)',
+                textShadow: '0 2px 8px hsl(0 0% 0% / 0.4)'
               }}
             >
               بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
             </p>
           </motion.div>
 
-          {/* Main Heading - Bold & Premium */}
+          {/* Main Heading - Responsive Scaling */}
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="heading-display text-white mb-8"
-            style={{ textShadow: '0 4px 20px hsl(0 0% 0% / 0.4)' }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-white mb-6 md:mb-8 font-display font-bold leading-[1.15] md:leading-[1.1]"
+            style={{ 
+              fontSize: 'clamp(1.75rem, 6vw, 4.5rem)',
+              textShadow: '0 4px 25px hsl(0 0% 0% / 0.5)',
+              letterSpacing: '-0.02em'
+            }}
           >
             Your Trusted Partner for{" "}
             <span 
-              className="block mt-2"
+              className="block mt-1 md:mt-2"
               style={{ 
                 background: 'linear-gradient(135deg, hsl(38, 50%, 75%) 0%, hsl(38, 35%, 62%) 50%, hsl(38, 45%, 70%) 100%)',
                 WebkitBackgroundClip: 'text',
@@ -67,45 +72,47 @@ export const Hero = () => {
             </span>
           </motion.h1>
 
-          {/* Subheading - Clear & Readable */}
+          {/* Subheading - Responsive */}
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 font-light tracking-wide"
-            style={{ textShadow: '0 2px 15px hsl(0 0% 0% / 0.3)' }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-white/90 mb-4 md:mb-6 font-light tracking-wide leading-relaxed"
+            style={{ 
+              fontSize: 'clamp(1rem, 3vw, 1.75rem)',
+              textShadow: '0 2px 12px hsl(0 0% 0% / 0.4)'
+            }}
           >
             Serving the Guests of Allah with Care
           </motion.p>
 
-          {/* Description */}
+          {/* Description - Constrained Width on Mobile */}
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-14 leading-relaxed"
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-sm md:text-base lg:text-lg text-white/70 max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 leading-relaxed px-2"
           >
-            Experience a blessed journey with over 15 years of excellence in Hajj and Umrah services. 
-            We take care of every detail so you can focus on your spiritual journey.
+            Experience a blessed journey with over 15 years of excellence in Hajj and Umrah services.
           </motion.p>
 
-          {/* CTA Buttons - Improved Hierarchy */}
+          {/* CTA Buttons - Full Width on Mobile, Stacked */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
             <Link 
               to="/packages" 
-              className="btn-gold flex items-center gap-3 text-base md:text-lg w-full sm:w-auto justify-center"
+              className="btn-gold flex items-center gap-3 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               View Packages
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/contact"
-              className="btn-secondary-outline flex items-center gap-3 text-base md:text-lg w-full sm:w-auto justify-center"
+              className="btn-secondary-outline flex items-center gap-3 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               <Phone className="w-5 h-5" />
               Contact Us
@@ -114,31 +121,31 @@ export const Hero = () => {
               href={`https://wa.me/${BUSINESS.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-whatsapp flex items-center gap-3 text-base md:text-lg w-full sm:w-auto justify-center"
+              className="btn-whatsapp flex items-center gap-3 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp
             </a>
           </motion.div>
 
-          {/* Trust Badges - Enhanced */}
+          {/* Trust Badges - Compact on Mobile */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-20 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 sm:gap-10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="mt-12 md:mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8"
           >
             {[
               "15+ Years Experience",
-              "10,000+ Happy Pilgrims",
+              "10,000+ Pilgrims",
               "100% Visa Success"
             ].map((text, index) => (
               <div 
                 key={index}
-                className="flex items-center gap-3 text-white/70 text-sm md:text-base"
+                className="flex items-center gap-2 text-white/60 text-xs sm:text-sm"
               >
                 <div 
-                  className="w-2 h-2 rounded-full"
+                  className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full flex-shrink-0"
                   style={{ background: 'linear-gradient(135deg, hsl(38, 50%, 75%), hsl(38, 35%, 62%))' }}
                 />
                 <span>{text}</span>
@@ -148,18 +155,18 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Hidden on Mobile */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1, duration: 0.5 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:block"
       >
-        <div className="w-7 h-12 border-2 border-white/30 rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-white/25 rounded-full flex justify-center">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-            className="w-1.5 h-3 rounded-full mt-2"
+            className="w-1 h-2.5 rounded-full mt-2"
             style={{ background: 'linear-gradient(180deg, hsl(38, 50%, 75%), hsl(38, 35%, 62%))' }}
           />
         </div>
