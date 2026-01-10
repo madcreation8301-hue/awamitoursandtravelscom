@@ -31,55 +31,75 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-card/95 backdrop-blur-md shadow-card"
-          : "bg-transparent"
+          ? "navbar-glass shadow-soft"
+          : "navbar-transparent"
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-display text-xl font-bold">A</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div 
+              className="w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+              style={{ 
+                background: scrolled 
+                  ? 'linear-gradient(135deg, hsl(151, 60%, 14%) 0%, hsl(151, 70%, 10%) 100%)' 
+                  : 'linear-gradient(135deg, hsl(151, 60%, 20%) 0%, hsl(151, 60%, 14%) 100%)',
+                boxShadow: '0 4px 15px -3px hsl(151 60% 14% / 0.4)'
+              }}
+            >
+              <span className="text-white font-display text-xl lg:text-2xl font-bold">A</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="font-display text-lg font-bold text-primary leading-tight">
+              <h1 
+                className={`font-display text-lg lg:text-xl font-bold leading-tight transition-colors duration-300 ${
+                  scrolled ? "text-primary" : "text-white"
+                }`}
+              >
                 Awami Tours
               </h1>
-              <p className="text-xs text-muted-foreground">& Travels</p>
+              <p 
+                className={`text-xs lg:text-sm transition-colors duration-300 ${
+                  scrolled ? "text-muted-foreground" : "text-white/70"
+                }`}
+              >
+                & Travels
+              </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href
-                    ? "text-primary"
-                    : "text-foreground/80"
-                }`}
+                className={`nav-link py-2 ${
+                  scrolled 
+                    ? location.pathname === link.href
+                      ? "text-primary"
+                      : "text-foreground/80 hover:text-primary"
+                    : location.pathname === link.href
+                      ? "text-white"
+                      : "text-white/80 hover:text-white"
+                } ${location.pathname === link.href ? 'active' : ''}`}
               >
                 {link.label}
-                {location.pathname === link.href && (
-                  <motion.div
-                    layoutId="underline"
-                    className="h-0.5 bg-accent rounded-full mt-1"
-                  />
-                )}
               </Link>
             ))}
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5">
             <a
               href={`tel:${BUSINESS.phone.mobile1.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 ${
+                scrolled 
+                  ? "text-foreground/70 hover:text-primary" 
+                  : "text-white/80 hover:text-white"
+              }`}
             >
               <Phone className="w-4 h-4" />
               <span className="hidden xl:inline">{BUSINESS.phone.mobile1}</span>
@@ -88,7 +108,7 @@ export const Header = () => {
               href={`https://wa.me/${BUSINESS.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold flex items-center gap-2 text-sm px-5 py-2.5"
+              className="btn-gold flex items-center gap-2 text-sm !px-6 !py-3"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
@@ -98,7 +118,11 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+            className={`lg:hidden p-3 rounded-xl transition-all duration-300 ${
+              scrolled 
+                ? "hover:bg-muted text-foreground" 
+                : "hover:bg-white/10 text-white"
+            }`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -113,35 +137,42 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-t border-border"
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-card/98 backdrop-blur-xl border-t border-border"
           >
-            <nav className="container py-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
+            <nav className="container py-8 space-y-2">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.href}
-                  to={link.href}
-                  className={`block py-2 text-lg font-medium transition-colors ${
-                    location.pathname === link.href
-                      ? "text-primary"
-                      : "text-foreground/80"
-                  }`}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    to={link.href}
+                    className={`block py-3 px-4 text-lg font-medium rounded-xl transition-all duration-300 ${
+                      location.pathname === link.href
+                        ? "text-primary bg-primary/5"
+                        : "text-foreground/80 hover:text-primary hover:bg-muted"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
-              <div className="pt-4 border-t border-border space-y-3">
+              <div className="pt-6 mt-4 border-t border-border space-y-4">
                 <a
                   href={`tel:${BUSINESS.phone.mobile1.replace(/\s/g, "")}`}
-                  className="flex items-center gap-3 py-2 text-foreground/80"
+                  className="flex items-center gap-4 py-3 px-4 text-foreground/80 hover:text-primary rounded-xl hover:bg-muted transition-all"
                 >
                   <Phone className="w-5 h-5" />
-                  {BUSINESS.phone.mobile1}
+                  <span className="font-medium">{BUSINESS.phone.mobile1}</span>
                 </a>
                 <a
                   href={`https://wa.me/${BUSINESS.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold flex items-center justify-center gap-2 w-full"
+                  className="btn-whatsapp flex items-center justify-center gap-3 w-full !py-4"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Chat on WhatsApp
