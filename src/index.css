@@ -115,14 +115,41 @@
 
   /* Premium Button Styles */
   .btn-gold {
-    @apply bg-accent text-foreground font-semibold px-8 py-3 rounded-lg;
+    @apply bg-accent text-foreground font-semibold px-8 py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
-    @apply hover:shadow-lg hover:scale-[1.02];
-    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--gold-light)) 100%);
+    background: linear-gradient(135deg, hsl(38 40% 70%) 0%, hsl(var(--accent)) 50%, hsl(38 30% 55%) 100%);
+    box-shadow: 0 4px 15px -3px hsl(var(--accent) / 0.4);
   }
 
   .btn-gold:hover {
-    box-shadow: 0 10px 30px -10px hsl(var(--accent) / 0.5);
+    box-shadow: 0 8px 25px -5px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.2);
+    @apply scale-[1.03];
+  }
+
+  .btn-secondary-outline {
+    @apply font-semibold px-8 py-4 rounded-xl;
+    @apply border-2 border-white/40 text-white/95;
+    @apply transition-all duration-300 ease-out;
+    background: transparent;
+    backdrop-filter: blur(4px);
+  }
+
+  .btn-secondary-outline:hover {
+    @apply bg-white/10 border-white/60;
+    box-shadow: 0 4px 20px -5px hsl(0 0% 100% / 0.15);
+  }
+
+  .btn-whatsapp {
+    @apply font-semibold px-8 py-4 rounded-xl;
+    @apply transition-all duration-300 ease-out;
+    background: linear-gradient(135deg, hsl(142 70% 40%) 0%, hsl(142 70% 35%) 100%);
+    color: white;
+    box-shadow: 0 4px 15px -3px hsl(142 70% 35% / 0.4);
+  }
+
+  .btn-whatsapp:hover {
+    box-shadow: 0 8px 25px -5px hsl(142 70% 35% / 0.5);
+    @apply scale-[1.03];
   }
 
   .btn-primary-gradient {
@@ -164,8 +191,10 @@
 
   /* Text Styles */
   .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+    @apply text-4xl md:text-5xl lg:text-7xl font-bold;
     font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
   .heading-section {
@@ -216,12 +245,44 @@
   /* WhatsApp Button */
   .whatsapp-float {
     @apply fixed bottom-6 right-6 z-50;
-    @apply bg-[#25D366] text-white p-4 rounded-full;
+    @apply text-white p-4 rounded-full;
+    background: linear-gradient(135deg, hsl(142 70% 40%) 0%, hsl(142 70% 35%) 100%);
     @apply shadow-lg hover:shadow-xl;
     @apply transition-all duration-300 hover:scale-110;
   }
 
-  /* Navigation active state */
+  /* Glassmorphism Navbar */
+  .navbar-glass {
+    background: hsl(var(--card) / 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .navbar-transparent {
+    background: hsl(151 70% 8% / 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    @apply relative text-sm font-medium tracking-wide;
+    @apply transition-all duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 rounded-full;
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--gold-light)));
+    transition: width 0.3s ease-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
   .nav-link-active {
     @apply text-primary relative;
   }
@@ -230,6 +291,13 @@
     content: '';
     @apply absolute -bottom-1 left-0 right-0 h-0.5 rounded-full;
     background: hsl(var(--accent));
+  }
+
+  /* Arabic Text Styling */
+  .arabic-spiritual {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
   }
 }
 
