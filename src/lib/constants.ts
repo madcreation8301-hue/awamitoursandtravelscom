@@ -13,11 +13,11 @@ export const BUSINESS = {
     mobile2: "+91 93710 14767",
     landline: "020-26052383"
   },
-  email: "awami.tours@yahoo.com",
+  email: "awamitours01@gmail.com",
   whatsapp: "919665270108",
   businessHours: {
-    weekdays: "9:00 AM - 7:00 PM",
-    saturday: "9:00 AM - 5:00 PM",
+    weekdays: "11:00 AM - 7:00 PM",
+    saturday: "11:00 AM - 7:00 PM",
     sunday: "Closed"
   },
   mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d73.8567!3d18.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSomwar%20Peth%2C%20Pune!5e0!3m2!1sen!2sin!4v1234567890",
