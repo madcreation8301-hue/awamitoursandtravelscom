@@ -104,7 +104,8 @@ export const Hero = () => {
             className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 max-w-sm sm:max-w-none mx-auto"
           >
             <Link 
-              to="/packages" 
+              to="/packages"
+              onClick={() => window.scrollTo(0, 0)}
               className="btn-gold flex items-center gap-3 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               View Packages
@@ -112,6 +113,7 @@ export const Hero = () => {
             </Link>
             <Link
               to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
               className="btn-secondary-outline flex items-center gap-3 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               <Phone className="w-5 h-5" />

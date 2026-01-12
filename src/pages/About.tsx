@@ -225,7 +225,7 @@ const About = () => {
                   </motion.li>
                 ))}
               </ul>
-              <Link to="/contact" className="btn-gold inline-flex items-center gap-2 mt-8">
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="btn-gold inline-flex items-center gap-2 mt-8">
                 Get in Touch
                 <ArrowRight className="w-5 h-5" />
               </Link>

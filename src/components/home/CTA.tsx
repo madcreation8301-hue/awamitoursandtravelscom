@@ -43,7 +43,8 @@ export const CTA = () => {
           {/* CTA Buttons - Full Width on Mobile */}
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 max-w-sm sm:max-w-none mx-auto">
             <Link 
-              to="/contact" 
+              to="/contact"
+              onClick={() => window.scrollTo(0, 0)}
               className="btn-gold flex items-center gap-2 justify-center w-full sm:w-auto min-h-[52px] text-base"
             >
               Get Started

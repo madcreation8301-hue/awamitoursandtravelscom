@@ -123,11 +123,11 @@ const Services = () => {
                 custom arrangements tailored specifically for you.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link to="/contact" className="btn-gold flex items-center gap-2">
+                <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="btn-gold flex items-center gap-2">
                   Contact Us
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link to="/packages" className="btn-primary-gradient flex items-center gap-2">
+                <Link to="/packages" onClick={() => window.scrollTo(0, 0)} className="btn-primary-gradient flex items-center gap-2">
                   View Packages
                   <ArrowRight className="w-5 h-5" />
                 </Link>

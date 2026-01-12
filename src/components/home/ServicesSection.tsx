@@ -39,7 +39,8 @@ export const ServicesSection = () => {
               transition={{ delay: index * 0.08, duration: 0.5 }}
             >
               <Link
-                to={`/services#${service.id}`}
+                to="/services"
+                onClick={() => window.scrollTo(0, 0)}
                 className="card-premium block h-full group"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
@@ -65,7 +66,7 @@ export const ServicesSection = () => {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
-          <Link to="/services" className="btn-gold inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+          <Link to="/services" onClick={() => window.scrollTo(0, 0)} className="btn-gold inline-flex items-center gap-2 w-full sm:w-auto justify-center">
             View All Services
             <ArrowRight className="w-5 h-5" />
           </Link>

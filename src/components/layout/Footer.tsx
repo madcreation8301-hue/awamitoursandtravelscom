@@ -13,7 +13,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-3">
+            <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3">
               <img 
                 src={logoImage}
                 alt="Awami Tours & Travels Logo"
@@ -67,6 +67,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
                   >
                     {link.label}
@@ -81,19 +82,20 @@ export const Footer = () => {
             <h4 className="font-display text-lg font-semibold mb-6">Our Services</h4>
             <ul className="space-y-3">
               {[
-                "Hajj Packages",
-                "Umrah Packages",
-                "Group Umrah",
-                "VIP Umrah",
-                "Visa Assistance",
-                "Ziyarat Tours"
+                { label: "Hajj Packages", href: "/packages" },
+                { label: "Umrah Packages", href: "/packages" },
+                { label: "Group Umrah", href: "/services" },
+                { label: "VIP Umrah", href: "/services" },
+                { label: "Visa Assistance", href: "/services" },
+                { label: "Ziyarat Tours", href: "/services" }
               ].map((service) => (
-                <li key={service}>
+                <li key={service.label}>
                   <Link
-                    to="/services"
+                    to={service.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
                   >
-                    {service}
+                    {service.label}
                   </Link>
                 </li>
               ))}
