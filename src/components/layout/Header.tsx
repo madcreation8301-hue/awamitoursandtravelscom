@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, MessageCircle, Home, Info, Briefcase, Package, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BUSINESS } from "@/lib/constants";
+import logoImage from "@/assets/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home", icon: Home },
@@ -61,17 +62,16 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div 
-              className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105"
+            <img 
+              src={logoImage}
+              alt="Awami Tours & Travels Logo"
+              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover transition-transform duration-300 group-hover:scale-105 shadow-lg"
               style={{ 
-                background: scrolled 
-                  ? 'linear-gradient(135deg, hsl(151, 60%, 14%) 0%, hsl(151, 70%, 10%) 100%)' 
-                  : 'linear-gradient(135deg, hsl(151, 60%, 20%) 0%, hsl(151, 60%, 14%) 100%)',
-                boxShadow: '0 4px 15px -3px hsl(151 60% 14% / 0.4)'
+                boxShadow: scrolled 
+                  ? '0 4px 15px -3px hsl(0 0% 0% / 0.15)' 
+                  : '0 4px 15px -3px hsl(0 0% 0% / 0.3)'
               }}
-            >
-              <span className="text-white font-display text-lg sm:text-xl lg:text-2xl font-bold">A</span>
-            </div>
+            />
             <div className="hidden sm:block">
               <h1 
                 className={`font-display text-lg lg:text-xl font-bold leading-tight transition-colors duration-300 ${
