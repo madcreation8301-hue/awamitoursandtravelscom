@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram, Youtube, Clock } from "lucide-react";
 import { BUSINESS } from "@/lib/constants";
+import logoImage from "@/assets/logo.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,22 +9,24 @@ export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
       {/* Main Footer */}
-      <div className="container py-16">
+      <div className="container py-16 px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-foreground font-display text-xl font-bold">A</span>
-              </div>
+            <Link to="/" className="flex items-center gap-3">
+              <img 
+                src={logoImage}
+                alt="Awami Tours & Travels Logo"
+                className="w-14 h-14 rounded-full object-cover shadow-lg"
+              />
               <div>
                 <h3 className="font-display text-lg font-bold">Awami Tours</h3>
                 <p className="text-sm text-primary-foreground/70">& Travels</p>
               </div>
-            </div>
+            </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Your trusted partner for Hajj and Umrah services. Serving the guests of Allah with care, 
-              dedication, and over 15 years of experience.
+              Your trusted partner for Hajj and Umrah services since 1998. Serving the guests of Allah with care, 
+              dedication, and over 25 years of experience.
             </p>
             <div className="flex gap-4">
               <a
