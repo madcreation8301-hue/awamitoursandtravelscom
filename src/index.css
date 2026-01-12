@@ -113,17 +113,20 @@
     pointer-events: none;
   }
 
-  /* Premium Button Styles - Mobile First */
+  /* Premium Button Styles - Mobile First with Better Contrast */
   .btn-gold {
-    @apply bg-accent text-foreground font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
+    @apply font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
     @apply active:scale-[0.98];
-    background: linear-gradient(135deg, hsl(38 40% 70%) 0%, hsl(var(--accent)) 50%, hsl(38 30% 55%) 100%);
-    box-shadow: 0 4px 15px -3px hsl(var(--accent) / 0.4);
+    background: linear-gradient(135deg, hsl(38 45% 65%) 0%, hsl(38 40% 55%) 50%, hsl(38 35% 50%) 100%);
+    color: hsl(0 0% 10%);
+    box-shadow: 0 4px 15px -3px hsl(38 40% 50% / 0.5);
+    min-height: 52px;
   }
 
   .btn-gold:hover {
-    box-shadow: 0 8px 25px -5px hsl(var(--accent) / 0.5), 0 0 20px hsl(var(--accent) / 0.2);
+    background: linear-gradient(135deg, hsl(38 50% 68%) 0%, hsl(38 45% 58%) 50%, hsl(38 40% 52%) 100%);
+    box-shadow: 0 8px 25px -5px hsl(38 40% 50% / 0.6), 0 0 20px hsl(38 40% 50% / 0.3);
   }
 
   @media (min-width: 640px) {
@@ -133,30 +136,33 @@
   }
 
   .btn-secondary-outline {
-    @apply font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
-    @apply border-2 border-white/40 text-white/95;
+    @apply font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
+    @apply border-2 border-white/50 text-white;
     @apply transition-all duration-300 ease-out;
-    @apply active:scale-[0.98] active:bg-white/5;
-    background: transparent;
-    backdrop-filter: blur(4px);
+    @apply active:scale-[0.98] active:bg-white/10;
+    background: hsl(0 0% 100% / 0.08);
+    backdrop-filter: blur(8px);
+    min-height: 52px;
   }
 
   .btn-secondary-outline:hover {
-    @apply bg-white/10 border-white/60;
-    box-shadow: 0 4px 20px -5px hsl(0 0% 100% / 0.15);
+    @apply bg-white/15 border-white/70;
+    box-shadow: 0 4px 20px -5px hsl(0 0% 100% / 0.25);
   }
 
   .btn-whatsapp {
-    @apply font-semibold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
+    @apply font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
     @apply active:scale-[0.98];
-    background: linear-gradient(135deg, hsl(142 60% 38%) 0%, hsl(142 65% 32%) 100%);
+    background: linear-gradient(135deg, hsl(142 70% 42%) 0%, hsl(142 65% 35%) 100%);
     color: white;
-    box-shadow: 0 4px 15px -3px hsl(142 60% 35% / 0.4);
+    box-shadow: 0 4px 15px -3px hsl(142 60% 35% / 0.5);
+    min-height: 52px;
   }
 
   .btn-whatsapp:hover {
-    box-shadow: 0 8px 20px -5px hsl(142 60% 35% / 0.5);
+    background: linear-gradient(135deg, hsl(142 75% 45%) 0%, hsl(142 70% 38%) 100%);
+    box-shadow: 0 8px 25px -5px hsl(142 60% 35% / 0.6);
   }
 
   @media (min-width: 640px) {
@@ -166,13 +172,17 @@
   }
 
   .btn-primary-gradient {
-    @apply text-primary-foreground font-semibold px-6 py-3 sm:px-8 rounded-lg;
+    @apply text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl;
     @apply transition-all duration-300 ease-out;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--green-light)) 100%);
+    @apply active:scale-[0.98];
+    background: linear-gradient(135deg, hsl(151 60% 18%) 0%, hsl(151 55% 22%) 100%);
+    box-shadow: 0 4px 15px -3px hsl(151 60% 14% / 0.4);
+    min-height: 52px;
   }
 
   .btn-primary-gradient:hover {
-    @apply shadow-lg;
+    background: linear-gradient(135deg, hsl(151 65% 20%) 0%, hsl(151 60% 25%) 100%);
+    box-shadow: 0 8px 25px -5px hsl(151 60% 14% / 0.5);
   }
 
   @media (min-width: 640px) {
@@ -183,7 +193,7 @@
 
   /* Card Styles */
   .card-premium {
-    @apply bg-card rounded-2xl p-6;
+    @apply bg-card rounded-2xl p-5 sm:p-6 lg:p-8;
     box-shadow: var(--shadow-card);
     @apply transition-all duration-300 ease-out;
   }
@@ -193,22 +203,22 @@
     @apply -translate-y-1;
   }
 
-  /* Section Styles - Mobile First */
+  /* Section Styles - Mobile First with Better Spacing */
   .section-beige {
-    @apply bg-background py-12 sm:py-16 lg:py-24;
+    @apply bg-background py-16 sm:py-20 lg:py-28;
   }
 
   .section-white {
-    @apply py-12 sm:py-16 lg:py-24;
+    @apply py-16 sm:py-20 lg:py-28;
     background: hsl(var(--beige-light));
   }
 
   .section-green {
-    @apply py-12 sm:py-16 lg:py-24 text-primary-foreground;
+    @apply py-16 sm:py-20 lg:py-28 text-primary-foreground;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--green-dark)) 100%);
   }
 
-  /* Text Styles - Responsive */
+  /* Text Styles - Responsive with Better Hierarchy */
   .heading-display {
     @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold;
     font-family: 'Playfair Display', serif;
@@ -223,7 +233,7 @@
   }
 
   .heading-card {
-    @apply text-lg sm:text-xl font-semibold;
+    @apply text-lg sm:text-xl font-bold;
     font-family: 'Playfair Display', serif;
   }
 
@@ -269,21 +279,21 @@
     }
   }
 
-  /* Glassmorphism Navbar */
+  /* Glassmorphism Navbar - Better Visibility */
   .navbar-glass {
-    background: hsl(var(--card) / 0.85);
+    background: hsl(var(--card) / 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid hsl(var(--border) / 0.5);
+    border-bottom: 1px solid hsl(var(--border) / 0.6);
   }
 
   .navbar-transparent {
-    background: hsl(151 70% 8% / 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: hsl(151 70% 6% / 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
-  /* Navigation Link Styles */
+  /* Navigation Link Styles - Better Contrast */
   .nav-link {
     @apply relative text-sm font-medium tracking-wide;
     @apply transition-all duration-300;
