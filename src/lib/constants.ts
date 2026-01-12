@@ -9,12 +9,12 @@ export const BUSINESS = {
     full: "234, Radha Krishna Apartment, Near Khadi Ka Maidan, Mudaliar Rd, Somwar Peth, Pune, Maharashtra 411011, India"
   },
   phone: {
-    mobile1: "+91 93710 14767",
-    mobile2: "+91 96652 70108",
+    mobile1: "+91 96652 70108",
+    mobile2: "+91 93710 14767",
     landline: "020-26052383"
   },
   email: "awami.tours@yahoo.com",
-  whatsapp: "919371014767",
+  whatsapp: "919665270108",
   businessHours: {
     weekdays: "9:00 AM - 7:00 PM",
     saturday: "9:00 AM - 5:00 PM",
