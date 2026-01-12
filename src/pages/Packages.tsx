@@ -167,7 +167,7 @@ const Packages = () => {
                 a custom package that perfectly fits your needs, preferences, and budget.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link to="/contact" className="btn-gold flex items-center gap-2">
+                <Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="btn-gold flex items-center gap-2">
                   Request Custom Package
                   <ArrowRight className="w-5 h-5" />
                 </Link>

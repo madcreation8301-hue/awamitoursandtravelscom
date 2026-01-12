@@ -81,7 +81,8 @@ export const PackagesSection = () => {
                 </div>
 
                 <Link
-                  to={`/packages#${pkg.id}`}
+                  to="/packages"
+                  onClick={() => window.scrollTo(0, 0)}
                   className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold transition-all duration-300 min-h-[52px] ${
                     pkg.featured
                       ? "btn-gold"
@@ -102,7 +103,7 @@ export const PackagesSection = () => {
           viewport={{ once: true }}
           className="text-center mt-10 sm:mt-12"
         >
-          <Link to="/packages" className="btn-gold inline-flex items-center gap-2">
+          <Link to="/packages" onClick={() => window.scrollTo(0, 0)} className="btn-gold inline-flex items-center gap-2">
             View All Packages
             <ArrowRight className="w-5 h-5" />
           </Link>

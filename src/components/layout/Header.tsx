@@ -45,9 +45,9 @@ export const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
+    // Immediate scroll to top before navigation
+    window.scrollTo(0, 0);
     navigate(href);
-    // Smooth scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -61,7 +61,7 @@ export const Header = () => {
       <div className="container px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group" onClick={() => window.scrollTo(0, 0)}>
             <img 
               src={logoImage}
               alt="Awami Tours & Travels Logo"
@@ -96,7 +96,7 @@ export const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() => window.scrollTo(0, 0)}
                 className={`nav-link py-2 font-medium ${
                   scrolled 
                     ? location.pathname === link.href
